@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'registration_screen.dart'; // Ensure correct path
-import '../main_screens/home_screen.dart'; // Ensure correct path
+import '../Navigations/navigation_bar.dart'; // Ensure correct path
 
 class SignInScreen extends StatefulWidget {
+  // ignore: use_super_parameters
   const SignInScreen({Key? key}) : super(key: key);
 
   @override
@@ -10,20 +11,16 @@ class SignInScreen extends StatefulWidget {
 }
 
 class _SignInScreenState extends State<SignInScreen> {
+  // ignore: unused_field
   final _form = GlobalKey<FormState>();
-  var _enteredPhone = '';
+  // ignore: unused_field
   var _enteredPassword = '';
 
   void _submit() {
-    final isValid = _form.currentState!.validate();
-    if (!isValid) {
-      return;
-    }
-    _form.currentState!.save();
-    
-    // Simulate login and navigate to home page directly
+   
     Navigator.of(context).pushReplacement(
       MaterialPageRoute(
+        // ignore: prefer_const_constructors
         builder: (ctx) =>  NavigationPage(),
       ),
     );
@@ -71,9 +68,9 @@ class _SignInScreenState extends State<SignInScreen> {
                         children: [
                           // Margin between top of form box and 'Phone Number' text
                           const SizedBox(height: 40), // Adjust this value to increase or decrease the margin
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 16), // Horizontal margin for labels
-                            child: const Text(
+                          const Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 16), // Horizontal margin for labels
+                            child: Text(
                               'Phone Number',
                               style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
                             ),
@@ -97,15 +94,14 @@ class _SignInScreenState extends State<SignInScreen> {
                                   return null;
                                 },
                                 onSaved: (value) {
-                                  _enteredPhone = value!;
                                 },
                               ),
                             ),
                           ),
                           const SizedBox(height: 8),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 16), // Horizontal margin for labels
-                            child: const Text(
+                          const Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 16), // Horizontal margin for labels
+                            child: Text(
                               'Password',
                               style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
                             ),
@@ -166,9 +162,9 @@ class _SignInScreenState extends State<SignInScreen> {
                                 );
                               },
                               child: RichText(
-                                text: TextSpan(
+                                text: const TextSpan(
                                   children: [
-                                    const TextSpan(
+                                    TextSpan(
                                       text: 'Not registered yet? ',
                                       style: TextStyle(color: Colors.black),
                                     ),
@@ -205,9 +201,9 @@ class _SignInScreenState extends State<SignInScreen> {
                     // Handle password recovery
                   },
                   child: RichText(
-                    text: TextSpan(
+                    text: const TextSpan(
                       children: [
-                        const TextSpan(
+                        TextSpan(
                           text: 'Forgot password? ',
                           style: TextStyle(color: Colors.black),
                         ),

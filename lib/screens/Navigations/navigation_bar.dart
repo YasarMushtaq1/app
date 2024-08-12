@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class NavigationPage extends StatefulWidget {
+  const NavigationPage({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _NavigationPageState createState() => _NavigationPageState();
 }
 
@@ -9,8 +12,8 @@ class _NavigationPageState extends State<NavigationPage> {
   int _currentIndex = 0;
 
   final List<Widget> _pages = [
-    OnlineCoursesPage(),
-    CourseDetailsPage(),
+    const OnlineCoursesPage(),
+    const CourseDetailsPage(),
   ];
 
   void _onItemTapped(int index) {
@@ -47,9 +50,11 @@ class _NavigationPageState extends State<NavigationPage> {
 }
 
 class OnlineCoursesPage extends StatelessWidget {
+  const OnlineCoursesPage({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text(
         'Online Courses Page',
         style: TextStyle(fontSize: 24),
@@ -59,9 +64,11 @@ class OnlineCoursesPage extends StatelessWidget {
 }
 
 class CourseDetailsPage extends StatelessWidget {
+  const CourseDetailsPage({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text(
         'Course Details Page',
         style: TextStyle(fontSize: 24),
